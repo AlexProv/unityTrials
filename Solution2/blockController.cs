@@ -54,6 +54,7 @@ public class blockController : MonoBehaviour {
 		tn.transform.localRotation = Quaternion.identity;
 		
 		demo = tn.gameObject;
+		//in this case of pyramid
 		demo.transform.localRotation = Quaternion.Euler(new Vector3(-90,0,0));
 	}
 	
