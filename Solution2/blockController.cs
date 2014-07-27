@@ -29,6 +29,17 @@ public class blockController : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		textAlarm.text = other.name;
+		if(demo != null)
+		{
+			toDestroy.Enqueue(demo);
+			bool wait = true;
+			while(wait)
+			{
+				if(toDestroy.Count == 0)
+					wait = false;
+			}
+		}
+		
 		print (other.gameObject.name);
 		demo = other.gameObject;
 		
