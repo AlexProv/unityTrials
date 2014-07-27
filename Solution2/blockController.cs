@@ -38,7 +38,7 @@ public class blockController : MonoBehaviour {
 	
 	void OnTriggerExit()
 	{
-		print(demo.name);
+		print("exit " + demo.name);
 		//Destroy(demo);
 	}
 	
