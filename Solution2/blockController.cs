@@ -28,7 +28,7 @@ public class blockController : MonoBehaviour {
 		demo = GameObject.Instantiate(type) as GameObject;
 		demo.transform.parent = other.transform;
 		
-		Transform tn = demo.transform.GetChild(0) as Transform;
+		Transform tn = demo.transform.GetChild(0);
 		changeParentChild(demo,tn.gameObject);
 		
 		tn.transform.parent = other.transform.parent;
