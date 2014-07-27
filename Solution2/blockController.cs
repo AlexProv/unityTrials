@@ -27,10 +27,15 @@ public class blockController : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
+		if(demo != null)
+		{
+			toDestroy.Enqueue(demo);
+		}
 		print (other.gameObject.name);
 		demo = other.gameObject;
 		
 		demo = GameObject.Instantiate(type) as GameObject;
+		
 		/*
 		demo.transform.parent = other.transform;
 		
