@@ -14,7 +14,7 @@ public class blockController : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-	
+		StartCoroutine(destroying());
 	}
 	
 	// Update is called once per frame
@@ -49,12 +49,20 @@ public class blockController : MonoBehaviour {
 		
 		toDestroy.Enqueue(demo);
 	}
-	void destroying()
+	
+	IEnumerator destroying()
 	{
 		while(true)
 		{
-			GameObject g = toDestroy.Dequeue() as GameObject;
-			Destroy(g);
+			if(toDestroy.Count > 0)
+			{
+				GameObject g = toDestroy.Dequeue() as GameObject;
+				Destroy(g);
+			}
+			else
+			{
+				yield return null; 
+			}
 		}	
 	}
 	void changeParentChild(GameObject parent, GameObject child)
