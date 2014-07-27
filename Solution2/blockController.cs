@@ -39,8 +39,8 @@ public class blockController : MonoBehaviour {
 		a = c;
 		//B pyramid 
 		
-		a.transform.parent = other.transform;
-		a.transform.localPosition = 0;
+		a.transform.parent = other.transform.parent;
+		a.transform.localPosition = Vector3.zero;
 		a.transform.localRotation = Quaternion.identity;
 		
 	}
