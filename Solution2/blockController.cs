@@ -33,15 +33,17 @@ public class blockController : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
-		print (other.gameObject.name);
-		demo = GameObject.Instantiate(type) as GameObject;
-		demo.transform.parent = other.transform;
+		//print (other.gameObject.name);
+		//demo = GameObject.Instantiate(type) as GameObject;
+		//demo.transform.parent = other.transform;
+		
+		
 		
 	}
 	
 	void OnTriggerExit()
 	{
-		Destroy(demo);
+		//Destroy(demo);
 	}
 	
 	void changeParentChild(GameObject parent, GameObject child)
