@@ -35,8 +35,6 @@ public class blockController : MonoBehaviour {
 		demo = other.gameObject;
 		
 		demo = GameObject.Instantiate(type) as GameObject;
-		
-		/*
 		demo.transform.parent = other.transform;
 		
 		Transform tn = demo.transform.GetChild(0);
@@ -45,7 +43,8 @@ public class blockController : MonoBehaviour {
 		tn.transform.parent = other.transform.parent;
 		tn.transform.localPosition = Vector3.zero;
 		tn.transform.localRotation = Quaternion.identity;
-		*/
+		
+		demo = tn;
 	}
 	
 	void OnTriggerExit()
