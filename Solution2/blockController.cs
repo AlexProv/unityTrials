@@ -44,7 +44,7 @@ public class blockController : MonoBehaviour {
 		tn.transform.localPosition = Vector3.zero;
 		tn.transform.localRotation = Quaternion.identity;
 		
-		demo = tn;
+		demo = tn.gameObject;
 	}
 	
 	void OnTriggerExit()
