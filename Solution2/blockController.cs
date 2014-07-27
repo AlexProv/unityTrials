@@ -40,11 +40,12 @@ public class blockController : MonoBehaviour {
 		Transform tn = demo.transform.GetChild(0);
 		changeParentChild(demo,tn.gameObject);
 		
-		tn.transform.parent = other.transform.parent;
+		tn.transform.parent = other.transform;
 		tn.transform.localPosition = Vector3.zero;
 		tn.transform.localRotation = Quaternion.identity;
 		
 		demo = tn.gameObject;
+		demo.transform.localRotation = Quaternion.Euler(new Vector3(-90,0,0));
 	}
 	
 	void OnTriggerExit()
