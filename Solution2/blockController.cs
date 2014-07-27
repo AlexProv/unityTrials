@@ -21,14 +21,9 @@ public class blockController : MonoBehaviour {
 		//transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
 		//transform.LookAt(new Vector3(transform.position.x,-1,transform.position.z));
 		
-		if(Input.GetKeyDown(KeyCode.Alpha1))
-		{
-			changeParentChild(a,b);
-			
-			GameObject c = b;
-			b = a;
-			a = c;
-		}
+		/*
+		
+		*/
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -37,7 +32,16 @@ public class blockController : MonoBehaviour {
 		//demo = GameObject.Instantiate(type) as GameObject;
 		//demo.transform.parent = other.transform;
 		
+		//A pyramid 
+		changeParentChild(a,b);			
+		GameObject c = b;
+		b = a;
+		a = c;
+		//B pyramid 
 		
+		a.transform.parent = other.transform;
+		a.transform.localPosition = 0;
+		a.transform.localRotation = Quaternion.identity;
 		
 	}
 	
