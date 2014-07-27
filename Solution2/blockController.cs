@@ -49,9 +49,7 @@ public class blockController : MonoBehaviour {
 	}
 	
 	void OnTriggerExit()
-	{
-		print("exit " + demo.name);
-		
+	{	
 		toDestroy.Enqueue(demo);
 	}
 	
