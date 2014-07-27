@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class blockController : MonoBehaviour {
 	
 	public GameObject type;
 	GameObject demo;
+	Queue toDestroy;
 	
+	void Awake()
+	{
+		toDestroy = new Queue();
+	}
 	// Use this for initialization
 	void Start () {
 	
@@ -40,9 +46,15 @@ public class blockController : MonoBehaviour {
 	void OnTriggerExit()
 	{
 		print("exit " + demo.name);
-		Destroy(demo);
+		toDestroy.Add(demo);
 	}
-	
+	void destroying()
+	{
+		while(true)
+		{
+			toDestroy.
+		}	
+	}
 	void changeParentChild(GameObject parent, GameObject child)
 	{
 		Transform parentParent = null;
