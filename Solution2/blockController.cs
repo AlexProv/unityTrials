@@ -23,8 +23,9 @@ public class blockController : MonoBehaviour {
 	{
 		print (other.gameObject.name);
 		demo = other.gameObject;
-		/*
+		
 		demo = GameObject.Instantiate(type) as GameObject;
+		/*
 		demo.transform.parent = other.transform;
 		
 		Transform tn = demo.transform.GetChild(0);
@@ -39,7 +40,7 @@ public class blockController : MonoBehaviour {
 	void OnTriggerExit()
 	{
 		print("exit " + demo.name);
-		//Destroy(demo);
+		Destroy(demo);
 	}
 	
 	void changeParentChild(GameObject parent, GameObject child)
