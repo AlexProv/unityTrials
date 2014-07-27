@@ -5,7 +5,7 @@ public class blockController : MonoBehaviour {
 	
 	public GameObject type;
 	GameObject demo;
-	
+	//test test test
 	public GameObject a;
 	public GameObject b;
 	
