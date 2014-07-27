@@ -46,13 +46,15 @@ public class blockController : MonoBehaviour {
 	void OnTriggerExit()
 	{
 		print("exit " + demo.name);
-		toDestroy.Add(demo);
+		
+		toDestroy.Enqueue(demo);
 	}
 	void destroying()
 	{
 		while(true)
 		{
-			toDestroy.
+			GameObject g = toDestroy.Dequeue() as GameObject;
+			Destroy(g);
 		}	
 	}
 	void changeParentChild(GameObject parent, GameObject child)
