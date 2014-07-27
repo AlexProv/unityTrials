@@ -7,6 +7,7 @@ public class blockController : MonoBehaviour {
 	public GameObject type;
 	GameObject demo;
 	Queue toDestroy;
+	public GUIText textAlarm;
 	
 	void Awake()
 	{
@@ -27,10 +28,7 @@ public class blockController : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
-		if(demo != null)
-		{
-			toDestroy.Enqueue(demo);
-		}
+		textAlarm.text = other.name;
 		print (other.gameObject.name);
 		demo = other.gameObject;
 		
@@ -50,6 +48,7 @@ public class blockController : MonoBehaviour {
 	
 	void OnTriggerExit()
 	{	
+		textAlarm.text = "";
 		toDestroy.Enqueue(demo);
 	}
 	
