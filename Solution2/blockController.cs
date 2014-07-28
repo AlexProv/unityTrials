@@ -45,12 +45,10 @@ public class blockController : MonoBehaviour {
 		changeParentChild(demo,tn.gameObject);
 		
 		tn.transform.parent = other.transform;
-		tn.transform.localPosition = other.transform.localPosition;
-		tn.transform.localRotation = Quaternion.identity;
+		tn.transform.localPosition = Vector3.zero;
+		tn.transform.localRotation = Quaternion.Euler(new Vector3(-90,0,0));
 		
 		demo = tn.gameObject;
-		//in this case of pyramid
-		demo.transform.localRotation = Quaternion.Euler(new Vector3(-90,0,0));
 	}
 	
 	void OnTriggerExit()
