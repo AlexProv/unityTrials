@@ -45,7 +45,7 @@ public class blockController : MonoBehaviour {
 		changeParentChild(demo,tn.gameObject);
 		
 		tn.transform.parent = other.transform;
-		tn.transform.localPosition = Vector3.zero;
+		tn.transform.localPosition = other.transform.localPosition;
 		tn.transform.localRotation = Quaternion.identity;
 		
 		demo = tn.gameObject;
