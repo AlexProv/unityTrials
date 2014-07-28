@@ -32,12 +32,7 @@ public class blockController : MonoBehaviour {
 		if(demo != null)
 		{
 			toDestroy.Enqueue(demo);
-			bool wait = true;
-			while(wait)
-			{
-				if(toDestroy.Count == 0)
-					wait = false;
-			}
+			destroying();
 		}
 		
 		print (other.gameObject.name);
