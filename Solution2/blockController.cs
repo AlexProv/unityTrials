@@ -50,6 +50,7 @@ public class blockController : MonoBehaviour {
 			OnTriggerExit();
 		}
 	}
+	
 	void OnTriggerEnter(Collider other)
 	{
 		textAlarm.text = other.name;
