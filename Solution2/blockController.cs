@@ -27,7 +27,22 @@ public class blockController : MonoBehaviour {
 		//transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
 		//transform.LookAt(new Vector3(transform.position.x,-1,transform.position.z));
 	}
-	
+	void rayPlacer()
+	{
+		Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
+		RaycastHit info; 
+		int mask = LayerMask.NameToLayer("block");
+		int range = 4;
+		
+		if(Physics.Raycast(r,out info,range, 1 << mask))
+		{
+		
+		}
+		else
+		{
+			
+		}
+	}
 	void OnTriggerEnter(Collider other)
 	{
 		textAlarm.text = other.name;
