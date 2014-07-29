@@ -21,8 +21,14 @@ public class blockController : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
+	
 		if (Input.GetKeyDown(KeyCode.Mouse0))
+		{
 			demo = null;
+			
+		}
+		rayPlacer();	
+	
 		//float lockPos = 0;
 		//transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
 		//transform.LookAt(new Vector3(transform.position.x,-1,transform.position.z));
@@ -36,11 +42,12 @@ public class blockController : MonoBehaviour {
 		
 		if(Physics.Raycast(r,out info,range, 1 << mask))
 		{
-		
+			print(info.collider.gameObject.name);
+			OnTriggerEnter(info.collider);
 		}
 		else
 		{
-			
+			OnTriggerExit();
 		}
 	}
 	void OnTriggerEnter(Collider other)
