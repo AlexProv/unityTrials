@@ -21,6 +21,8 @@ public class blockController : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Mouse0))
+			demo = null;
 		//float lockPos = 0;
 		//transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
 		//transform.LookAt(new Vector3(transform.position.x,-1,transform.position.z));
