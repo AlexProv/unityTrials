@@ -38,20 +38,20 @@ public class blockController : MonoBehaviour {
 		Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
 		RaycastHit info; 
 		int mask = LayerMask.NameToLayer("block");
-		int range = 4;
+		int range = 10;
 		
 		if(Physics.Raycast(r,out info,range, 1 << mask))
 		{
 			print(info.collider.gameObject.name);
-			OnTriggerEnter(info.collider);
+			onEnter(info.collider);
 		}
 		else
 		{
-			OnTriggerExit();
+			onExit();
 		}
 	}
 	
-	void OnTriggerEnter(Collider other)
+	void onEnter(Collider other)
 	{
 		textAlarm.text = other.name;
 		if(demo != null)
@@ -76,7 +76,7 @@ public class blockController : MonoBehaviour {
 		demo = tn.gameObject;
 	}
 	
-	void OnTriggerExit()
+	void onExit()
 	{	
 		textAlarm.text = "";
 		toDestroy.Enqueue(demo);
