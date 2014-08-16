@@ -7,7 +7,6 @@ public class blockController : MonoBehaviour {
 	public GameObject type;
 	GameObject demo;
 	Queue toDestroy;
-	public GUIText textAlarm;
 	
 	void Awake()
 	{
@@ -60,7 +59,7 @@ public class blockController : MonoBehaviour {
 		
 		if(Physics.Raycast(r,out info,range, 1 << mask))
 		{
-			print(info.collider.gameObject.name);
+			//print(info.collider.gameObject.name);
 			onEnter(info.collider);
 		}
 		else
@@ -71,14 +70,12 @@ public class blockController : MonoBehaviour {
 	
 	void onEnter(Collider other)
 	{
-		textAlarm.text = other.name;
 		if(demo != null)
 		{
 			toDestroy.Enqueue(demo);
 			destroying();
 		}
 		
-		print (other.gameObject.name);
 		demo = other.gameObject;
 		
 		demo = GameObject.Instantiate(type) as GameObject;
@@ -96,7 +93,6 @@ public class blockController : MonoBehaviour {
 	
 	void onExit()
 	{	
-		textAlarm.text = "";
 		toDestroy.Enqueue(demo);
 	}
 	
@@ -126,8 +122,5 @@ public class blockController : MonoBehaviour {
 		
 		parent.transform.parent = null;
 		parent.transform.parent = child.transform;
-		
-		print(parent);
-		print (child);
 	}
 }
