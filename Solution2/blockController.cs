@@ -7,7 +7,6 @@ public class blockController : MonoBehaviour {
 	public GameObject type;
 	GameObject demo;
 	Queue toDestroy;
-	public GUIText textAlarm;
 	
 	void Awake()
 	{
@@ -52,7 +51,6 @@ public class blockController : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		textAlarm.text = other.name;
 		if(demo != null)
 		{
 			toDestroy.Enqueue(demo);
@@ -77,7 +75,6 @@ public class blockController : MonoBehaviour {
 	
 	void OnTriggerExit()
 	{   
-		textAlarm.text = "";
 		toDestroy.Enqueue(demo);
 	}
 	
@@ -113,12 +110,3 @@ public class blockController : MonoBehaviour {
 	}
 }
 
-
-/*
-
-        Quaternion rot = child.transform.localRotation;
-        Transform t = q.Dequeue() as Transform;
-        child.transform.parent = t;
-        child.transform.localPosition = pos;
-        child.transform.localRotation = rot;
-*/
