@@ -22,7 +22,7 @@ public class blockController : MonoBehaviour {
 	void Update()
 	{
 	
-		if (Input.GetKeyDown(KeyCode.Mouse0))
+		if(Input.GetKeyDown(KeyCode.Mouse0))
 		{
 			demo = null;	
 		}
