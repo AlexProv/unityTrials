@@ -58,10 +58,8 @@ public class blockController : MonoBehaviour {
         int range = 10;
         
         if(Physics.Raycast(r,out info,range, 1 << mask))
-        {
-             
-            if(info.collider.gameObject.name.Contains("node"))
-                Destroy(info.collider.gameObject);
+        {        
+        	Destroy(info.collider.gameObject);
         }
 	}
 	
