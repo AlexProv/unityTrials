@@ -34,11 +34,6 @@ public class blockController : MonoBehaviour {
 		{
 			rayPlacer();	
 		}
-		
-	
-		//float lockPos = 0;
-		//transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
-		//transform.LookAt(new Vector3(transform.position.x,-1,transform.position.z));
 	}
 	
 	void delTarget()
@@ -134,13 +129,3 @@ public class blockController : MonoBehaviour {
 		print (child);
 	}
 }
-
-
-/*
-
-		Quaternion rot = child.transform.localRotation;
-		Transform t = q.Dequeue() as Transform;
-		child.transform.parent = t;
-		child.transform.localPosition = pos;
-		child.transform.localRotation = rot;
-*/
