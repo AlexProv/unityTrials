@@ -3,17 +3,11 @@ using System.Collections;
 
 public class Flag : MonoBehaviour {
 
-	enum flag_value {tst, ts}
+	virtual enum value;
 	void Awake()
 	{
-		print(flag_value.ts);
+		
 	}
-	
-	public string value{ get; private set;}
-	
-	public void setFlag()
-	{
-	
-	}
-	
+	private value 
+	public string Value {get;set;}
 }
