@@ -7,7 +7,7 @@ public class blockController : MonoBehaviour {
 	public GameObject type;
 	GameObject demo;
 	Queue toDestroy;
-	//public GUIText textAlarm;
+	public GUIText textAlarm;
 	
 	void Awake()
 	{
@@ -21,63 +21,45 @@ public class blockController : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
 	{
-	
-		if(Input.GetKeyDown(KeyCode.Mouse0))
-		{
-			demo = null;	
-		}
-		if(Input.GetKeyDown(KeyCode.Mouse1))
-		{
-			//delTarget();
-		}
-		rayPlacer();
-	}
-	
-	void delTarget()
-	{
-	/*
-		Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
-		RaycastHit info; 
-		int mask = LayerMask.NameToLayer("block");
-		int range = 10;
 		
-		if(Physics.Raycast(r,out info,range, 1 << mask))
+		if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
-			 
-		 	if(info.collider.gameObject.name.Contains("node"))
-				Destroy(info.collider.gameObject);
+			demo = null;
+			
 		}
-		*/
+		rayPlacer();    
+		
+		//float lockPos = 0;
+		//transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
+		//transform.LookAt(new Vector3(transform.position.x,-1,transform.position.z));
 	}
-	
 	void rayPlacer()
 	{
 		Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
 		RaycastHit info; 
 		int mask = LayerMask.NameToLayer("block");
-		int range = 10;
+		int range = 4;
 		
 		if(Physics.Raycast(r,out info,range, 1 << mask))
 		{
-			//print(info.collider.gameObject.name);
-			onEnter(info.collider);
+			print(info.collider.gameObject.name);
+			OnTriggerEnter(info.collider);
 		}
 		else
 		{
-			onExit();
+			OnTriggerExit();
 		}
 	}
-	
-	void onEnter(Collider other)
+	void OnTriggerEnter(Collider other)
 	{
-		//textAlarm.text = other.name;
+		textAlarm.text = other.name;
 		if(demo != null)
 		{
 			toDestroy.Enqueue(demo);
 			destroying();
 		}
 		
-		//print (other.gameObject.name);
+		print (other.gameObject.name);
 		demo = other.gameObject;
 		
 		demo = GameObject.Instantiate(type) as GameObject;
@@ -93,9 +75,9 @@ public class blockController : MonoBehaviour {
 		demo = tn.gameObject;
 	}
 	
-	void onExit()
-	{	
-		//textAlarm.text = "";
+	void OnTriggerExit()
+	{   
+		textAlarm.text = "";
 		toDestroy.Enqueue(demo);
 	}
 	
@@ -112,7 +94,7 @@ public class blockController : MonoBehaviour {
 			{
 				yield return null; 
 			}
-		}	
+		}   
 	}
 	void changeParentChild(GameObject parent, GameObject child)
 	{
@@ -126,7 +108,17 @@ public class blockController : MonoBehaviour {
 		parent.transform.parent = null;
 		parent.transform.parent = child.transform;
 		
-		//print(parent);
-		//print (child);
+		print(parent);
+		print (child);
 	}
 }
+
+
+/*
+
+        Quaternion rot = child.transform.localRotation;
+        Transform t = q.Dequeue() as Transform;
+        child.transform.parent = t;
+        child.transform.localPosition = pos;
+        child.transform.localRotation = rot;
+*/
