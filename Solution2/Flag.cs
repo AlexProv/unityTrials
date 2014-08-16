@@ -9,7 +9,7 @@ public class Flag : MonoBehaviour {
 		
 	}
 	
-	string value{private set; public get;}
+	string value{public get; private set;}
 	
 	public void setFlag()
 	{
