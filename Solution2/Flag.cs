@@ -8,6 +8,5 @@ public class Flag : MonoBehaviour {
 	{
 		
 	}
-	private value 
 	public string Value {get;set;}
 }
