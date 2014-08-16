@@ -26,7 +26,7 @@ public class blockController : MonoBehaviour {
 			demo = null;
 			
 		}
-		rayPlacer();    
+		//rayPlacer();    
 		
 		//float lockPos = 0;
 		//transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
@@ -49,6 +49,22 @@ public class blockController : MonoBehaviour {
 			OnTriggerExit();
 		}
 	}
+	
+	void delTarget()
+	{
+        Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
+        RaycastHit info; 
+        int mask = LayerMask.NameToLayer("block");
+        int range = 10;
+        
+        if(Physics.Raycast(r,out info,range, 1 << mask))
+        {
+             
+            if(info.collider.gameObject.name.Contains("node"))
+                Destroy(info.collider.gameObject);
+        }
+	}
+	
 	void OnTriggerEnter(Collider other)
 	{
 		if(demo != null)
