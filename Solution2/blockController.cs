@@ -60,7 +60,7 @@ public class blockController : MonoBehaviour {
 		
 		if(Physics.Raycast(r,out info,range, 1 << mask))
 		{
-			print(info.collider.gameObject.name);
+			//print(info.collider.gameObject.name);
 			onEnter(info.collider);
 		}
 		else
@@ -78,7 +78,7 @@ public class blockController : MonoBehaviour {
 			destroying();
 		}
 		
-		print (other.gameObject.name);
+		//print (other.gameObject.name);
 		demo = other.gameObject;
 		
 		demo = GameObject.Instantiate(type) as GameObject;
@@ -127,7 +127,7 @@ public class blockController : MonoBehaviour {
 		parent.transform.parent = null;
 		parent.transform.parent = child.transform;
 		
-		print(parent);
-		print (child);
+		//print(parent);
+		//print (child);
 	}
 }
