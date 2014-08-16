@@ -24,15 +24,36 @@ public class blockController : MonoBehaviour {
 	
 		if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
-			demo = null;
-			
+			demo = null;	
 		}
-		rayPlacer();	
+		if(Input.GetKeyDown(KeyCode.Mouse0))
+		{
+			delTarget();
+		}
+		else
+		{
+			rayPlacer();	
+		}
+		
 	
 		//float lockPos = 0;
 		//transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
 		//transform.LookAt(new Vector3(transform.position.x,-1,transform.position.z));
 	}
+	
+	void delTarget()
+	{
+		Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
+		RaycastHit info; 
+		int mask = LayerMask.NameToLayer("block");
+		int range = 10;
+		
+		if(Physics.Raycast(r,out info,range, 1 << mask))
+		{
+			Destroy(info.collider.gameObject);
+		}
+	}
+	
 	void rayPlacer()
 	{
 		Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
