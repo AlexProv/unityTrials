@@ -28,16 +28,14 @@ public class blockController : MonoBehaviour {
 		}
 		if(Input.GetKeyDown(KeyCode.Mouse1))
 		{
-			delTarget();
+			//delTarget();
 		}
-		else
-		{
-			rayPlacer();	
-		}
+		rayPlacer();
 	}
 	
 	void delTarget()
 	{
+	/*
 		Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
 		RaycastHit info; 
 		int mask = LayerMask.NameToLayer("block");
@@ -45,10 +43,11 @@ public class blockController : MonoBehaviour {
 		
 		if(Physics.Raycast(r,out info,range, 1 << mask))
 		{
-		 //hack 
+			 
 		 	if(info.collider.gameObject.name.Contains("node"))
 				Destroy(info.collider.gameObject);
 		}
+		*/
 	}
 	
 	void rayPlacer()
