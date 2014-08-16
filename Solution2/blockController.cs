@@ -26,7 +26,7 @@ public class blockController : MonoBehaviour {
 		{
 			demo = null;	
 		}
-		if(Input.GetKeyDown(KeyCode.Mouse0))
+		if(Input.GetKeyDown(KeyCode.Mouse1))
 		{
 			delTarget();
 		}
