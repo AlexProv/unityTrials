@@ -6,10 +6,10 @@ public class Flag : MonoBehaviour {
 	enum flag_value {tst, ts}
 	void Awake()
 	{
-		print(flag_value[0]);
+		print(flag_value.ts);
 	}
 	
-	string value{public get; private set;}
+	public string value{ get; private set;}
 	
 	public void setFlag()
 	{
