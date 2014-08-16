@@ -45,7 +45,9 @@ public class blockController : MonoBehaviour {
 		
 		if(Physics.Raycast(r,out info,range, 1 << mask))
 		{
-			Destroy(info.collider.gameObject);
+		 //hack 
+		 	if(!info.collider.gameObject.name.Contains("node"))
+				Destroy(info.collider.gameObject);
 		}
 	}
 	
