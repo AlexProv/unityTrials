@@ -46,12 +46,12 @@ public class blockController : MonoBehaviour {
 			if(nf.isOpen)
 			{
 				nf.isOpen = false;
-				OnTriggerEnter(info.collider);
+				OnEnter(info.collider);
 			}
 		}
 		else
 		{
-			OnTriggerExit();
+			OnExit();
 		}
 	}
 	
@@ -70,8 +70,32 @@ public class blockController : MonoBehaviour {
         }
 	}
 	
+	void OnEnter(Collider other)
+	{
+		if(demo != null)
+		{
+			toDestroy.Enqueue(demo);
+			destroying();
+		}
+		
+		demo = other.gameObject;
+		
+		demo = GameObject.Instantiate(type) as GameObject;
+		demo.transform.parent = other.transform;
+		
+		Transform tn = demo.transform.GetChild(0);
+		changeParentChild(demo,tn.gameObject);
+		
+		tn.transform.parent = other.transform;
+		tn.transform.localPosition = Vector3.zero;
+		tn.transform.localRotation = Quaternion.Euler(new Vector3(-90,0,0));
+		
+		demo = tn.gameObject;	
+	}
+	
 	void OnTriggerEnter(Collider other)
 	{
+	/*
 		print(other.gameObject.name);
 		if(demo != null)
 		{
@@ -91,7 +115,7 @@ public class blockController : MonoBehaviour {
 		tn.transform.localPosition = Vector3.zero;
 		tn.transform.localRotation = Quaternion.Euler(new Vector3(-90,0,0));
 		
-		demo = tn.gameObject;
+		demo = tn.gameObject;*/
 	}
 	
 	void OnExit()
