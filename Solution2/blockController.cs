@@ -92,9 +92,9 @@ public class blockController : MonoBehaviour {
 	
 	void OnExit()
 	{	
-		(demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
-		DestroyImmediate(demo);
-		//toDestroy.Enqueue(demo);
+		//GameObject g = demo.transform.parent.gameObject;
+		//(demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
+		toDestroy.Enqueue(demo);
 	}
 	
 	
@@ -147,6 +147,7 @@ public class blockController : MonoBehaviour {
 			}
 		}   
 	}
+	
 	void changeParentChild(GameObject parent, GameObject child)
 	{
 		Transform parentParent = null;
