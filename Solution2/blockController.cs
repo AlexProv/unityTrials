@@ -66,12 +66,13 @@ public class blockController : MonoBehaviour {
         RaycastHit info; 
         int mask = LayerMask.NameToLayer("block");
         int range = 10;
-        
+        print ("AA");
         if(Physics.Raycast(r,out info,range, 1 << mask))
         {       
+        	print(info.collider.name);
 			//NodeFlag nf = info.collider.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
 			//nf.isOpen = true;
-			toDestroy.Enqueue(info.collider.gameObject);
+			//toDestroy.Enqueue(info.collider.gameObject);
         	//Destroy(info.collider.gameObject);
         }
 	}
@@ -150,7 +151,6 @@ public class blockController : MonoBehaviour {
 			{
 				GameObject g = toDestroy.Dequeue() as GameObject;
 				(g.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
-				print(g.name);
 				DestroyImmediate(g);
 			}
 			else
