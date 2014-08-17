@@ -66,7 +66,6 @@ public class blockController : MonoBehaviour {
         RaycastHit info; 
         int mask = LayerMask.NameToLayer("block");
         int range = 10;
-        print ("AA");
         if(Physics.Raycast(r,out info,range, 1 << mask))
         {       
         	print(info.collider.name);
@@ -151,6 +150,7 @@ public class blockController : MonoBehaviour {
 			{
 				GameObject g = toDestroy.Dequeue() as GameObject;
 				(g.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
+				(g.transform.parent.gameObject.collider.enabled = true;
 				DestroyImmediate(g);
 			}
 			else
