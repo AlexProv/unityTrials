@@ -59,7 +59,8 @@ public class blockController : MonoBehaviour {
         int range = 10;
         
         if(Physics.Raycast(r,out info,range, 1 << mask))
-        {        
+        {       
+        	print ("AAAA"); 
 			NodeFlag nf = info.collider.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
 			nf.isOpen = true;
         	Destroy(info.collider.gameObject);
@@ -89,6 +90,14 @@ public class blockController : MonoBehaviour {
 		demo = tn.gameObject;	
 	}
 	
+	void OnExit()
+	{
+		NodeFlag nf = demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
+		nf.isOpen = true;
+		toDestroy.Enqueue(demo);
+	}
+	
+	
 	void OnTriggerEnter(Collider other)
 	{
 	/*
@@ -113,15 +122,7 @@ public class blockController : MonoBehaviour {
 		
 		demo = tn.gameObject;*/
 	}
-	
-	void OnExit()
-	{
-		print(demo.name);
-		NodeFlag nf = demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
-		nf.isOpen = true;
-		toDestroy.Enqueue(demo);
-	}
-	
+
 	void OnTriggerExit()
 	{   
 	/*
