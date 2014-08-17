@@ -7,10 +7,12 @@ public class blockController : MonoBehaviour {
 	public GameObject type;
 	GameObject demo;
 	Queue toDestroy;
+	Queue toEnable;
 	
 	void Awake()
 	{
 		toDestroy = new Queue();
+		toEnable = new Queue();
 	}
 	// Use this for initialization
 	void Start () {
@@ -141,6 +143,22 @@ public class blockController : MonoBehaviour {
 			{
 				GameObject g = toDestroy.Dequeue() as GameObject;
 				Destroy(g);
+			}
+			else
+			{
+				yield return null; 
+			}
+		}   
+	}
+	
+	IEnumerator enabling()
+	{
+		while(true)
+		{
+			if(toEnable.Count > 0)
+			{
+				NodeFlag nf = toEnable.Dequeue() as NodeFlag;
+				nf.isOpen = true;
 			}
 			else
 			{
