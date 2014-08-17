@@ -64,31 +64,26 @@ public class blockController : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
-		NodeFlag nf = other.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
-		print(other.gameObject.name);
-		if(nf.isOpen)
+	
+		if(demo != null)
 		{
-			nf.isOpen = false;
-			if(demo != null)
-			{
-				toDestroy.Enqueue(demo);
-				destroying();
-			}
-			
-			demo = other.gameObject;
-			
-			demo = GameObject.Instantiate(type) as GameObject;
-			demo.transform.parent = other.transform;
-			
-			Transform tn = demo.transform.GetChild(0);
-			changeParentChild(demo,tn.gameObject);
-			
-			tn.transform.parent = other.transform;
-			tn.transform.localPosition = Vector3.zero;
-			tn.transform.localRotation = Quaternion.Euler(new Vector3(-90,0,0));
-			
-			demo = tn.gameObject;
+			toDestroy.Enqueue(demo);
+			destroying();
 		}
+		
+		demo = other.gameObject;
+		
+		demo = GameObject.Instantiate(type) as GameObject;
+		demo.transform.parent = other.transform;
+		
+		Transform tn = demo.transform.GetChild(0);
+		changeParentChild(demo,tn.gameObject);
+		
+		tn.transform.parent = other.transform;
+		tn.transform.localPosition = Vector3.zero;
+		tn.transform.localRotation = Quaternion.Euler(new Vector3(-90,0,0));
+		
+		demo = tn.gameObject;
 	}
 	
 	void OnTriggerExit()
