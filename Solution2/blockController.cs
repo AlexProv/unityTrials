@@ -34,7 +34,7 @@ public class blockController : MonoBehaviour {
 		Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
 		RaycastHit info; 
 		int mask = LayerMask.NameToLayer("block");
-		int range = 10;
+		int range = 4;
 		
 		if(Physics.Raycast(r,out info,range, 1 << mask))
 		{
