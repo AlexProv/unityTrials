@@ -17,7 +17,6 @@ public class blockController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(destroying());
-		StartCoroutine(enabling());
 	}
 	
 	// Update is called once per frame
@@ -95,8 +94,8 @@ public class blockController : MonoBehaviour {
 	void OnExit()
 	{	
 		//GameObject g = demo.transform.parent.gameObject;
-		(demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
-		toEnable.Enqueue(demo.transform.parent.gameObject);
+		//(demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
+		//toEnable.Enqueue(demo.transform.parent.gameObject);
 		toDestroy.Enqueue(demo);
 	}
 	
@@ -142,23 +141,8 @@ public class blockController : MonoBehaviour {
 			if(toDestroy.Count > 0)
 			{
 				GameObject g = toDestroy.Dequeue() as GameObject;
-				Destroy(g);
-			}
-			else
-			{
-				yield return null; 
-			}
-		}   
-	}
-	
-	IEnumerator enabling()
-	{
-		while(true)
-		{
-			if(toEnable.Count > 0)
-			{	
-				GameObject g = toEnable.Dequeue() as GameObject;
 				(g.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
+				DestroyImmediate(g);
 			}
 			else
 			{
