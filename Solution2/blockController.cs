@@ -38,7 +38,6 @@ public class blockController : MonoBehaviour {
 		
 		if(Physics.Raycast(r,out info,range, 1 << mask))
 		{
-			print(info.collider.gameObject.name);
 			NodeFlag nf = info.collider.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
 			if(nf.isOpen)
 			{
@@ -142,11 +141,12 @@ public class blockController : MonoBehaviour {
 			{
 				GameObject g = toDestroy.Dequeue() as GameObject;
 				(g.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
+				print(g.name);
 				DestroyImmediate(g);
 			}
 			else
 			{
-				yield return null; 
+				yield return null;
 			}
 		}   
 	}
