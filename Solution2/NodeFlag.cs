@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NodeFlag : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+public class NodeFlag : Flag {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public bool Open {get;set;} 
+	void Awake()
+	{ 
+		Open = true;	
 	}
 }
