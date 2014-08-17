@@ -88,8 +88,6 @@ public class blockController : MonoBehaviour {
 	
 	void OnTriggerExit()
 	{   
-		NodeFlag nf = demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
-		nf.isOpen = true;
 		toDestroy.Enqueue(demo);
 	}
 	
