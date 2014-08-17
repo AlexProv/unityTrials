@@ -73,7 +73,7 @@ public class blockController : MonoBehaviour {
         	print(info.collider.name);     
 			//NodeFlag nf = info.collider.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
 			//nf.isOpen = true;
-			//toDestroy.Enqueue(info.collider.gameObject);
+			toDestroy.Enqueue(info.collider.gameObject);
         	//Destroy(info.collider.gameObject);
         }
 	}
