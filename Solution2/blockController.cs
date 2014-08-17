@@ -68,10 +68,11 @@ public class blockController : MonoBehaviour {
         int mask = LayerMask.NameToLayer("block");
         int range = 10;
         if(Physics.Raycast(r,out info,range, 1 << mask))
-        {       
+        {  
+        	print(info.collider.name);     
 			//NodeFlag nf = info.collider.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
 			//nf.isOpen = true;
-			toDestroy.Enqueue(info.collider.gameObject);
+			//toDestroy.Enqueue(info.collider.gameObject);
         	//Destroy(info.collider.gameObject);
         }
 	}
