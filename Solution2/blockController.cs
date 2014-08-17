@@ -65,6 +65,7 @@ public class blockController : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
+		NodeFlag nf = collider.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
 		if(demo != null)
 		{
 			toDestroy.Enqueue(demo);
