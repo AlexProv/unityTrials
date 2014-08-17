@@ -94,11 +94,20 @@ public class blockController : MonoBehaviour {
 		demo = tn.gameObject;
 	}
 	
-	void OnTriggerExit()
-	{   
+	void OnExit()
+	{
 		NodeFlag nf = demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
 		nf.isOpen = true;
 		toDestroy.Enqueue(demo);
+	}
+	
+	void OnTriggerExit()
+	{   
+	/*
+		NodeFlag nf = demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
+		nf.isOpen = true;
+		toDestroy.Enqueue(demo);
+		*/
 	}
 	
 	IEnumerator destroying()
