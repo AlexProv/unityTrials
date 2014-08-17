@@ -26,7 +26,7 @@ public class blockController : MonoBehaviour {
 			demo = null;
 			
 		}
-		//rayPlacer();    
+		rayPlacer();    
 		
 		//float lockPos = 0;
 		//transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
@@ -37,15 +37,16 @@ public class blockController : MonoBehaviour {
 		Ray r = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
 		RaycastHit info; 
 		int mask = LayerMask.NameToLayer("block");
-		int range = 4;
+		int range = 10;
 		
 		if(Physics.Raycast(r,out info,range, 1 << mask))
 		{
-			OnTriggerEnter(info.collider);
+			print(info.collider.gameObject.name);
+			//OnTriggerEnter(info.collider);
 		}
 		else
 		{
-			OnTriggerExit();
+			//OnTriggerExit();
 		}
 	}
 	
