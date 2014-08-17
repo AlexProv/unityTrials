@@ -3,9 +3,11 @@ using System.Collections;
 
 public class NodeFlag : Flag {
 	
-	public bool isOpen {get;set;} 
+	public bool isOpen;
 	void Awake()
 	{ 
 		isOpen = true;	
 	}
+	
+	
 }
