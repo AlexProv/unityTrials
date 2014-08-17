@@ -26,6 +26,7 @@ public class blockController : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
 			demo.transform.parent.gameObject.collider.enabled = false;
+			demo.layer = LayerMask.NameToLayer("blockInterior");
 			demo = null;
 		}
 		if (Input.GetKeyDown(KeyCode.Mouse1))
