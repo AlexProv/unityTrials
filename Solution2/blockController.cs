@@ -66,6 +66,8 @@ public class blockController : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		NodeFlag nf = other.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
+		if(nf == null)
+			print("allo");
 		if(nf.isOpen)
 		{
 			nf.isOpen = false;
