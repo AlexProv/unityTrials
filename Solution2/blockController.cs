@@ -25,6 +25,7 @@ public class blockController : MonoBehaviour {
 		
 		if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
+			demo.transform.parent.gameObject.collider.enabled = false;
 			demo = null;
 		}
 		if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -68,10 +69,9 @@ public class blockController : MonoBehaviour {
         int range = 10;
         if(Physics.Raycast(r,out info,range, 1 << mask))
         {       
-        	print(info.collider.name);
 			//NodeFlag nf = info.collider.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
 			//nf.isOpen = true;
-			//toDestroy.Enqueue(info.collider.gameObject);
+			toDestroy.Enqueue(info.collider.gameObject);
         	//Destroy(info.collider.gameObject);
         }
 	}
