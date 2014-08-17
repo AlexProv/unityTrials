@@ -140,7 +140,7 @@ public class blockController : MonoBehaviour {
 			if(toDestroy.Count > 0)
 			{
 				GameObject g = toDestroy.Dequeue() as GameObject;
-				(g.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
+				(g.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
 				print(g.name);
 				DestroyImmediate(g);
 			}
