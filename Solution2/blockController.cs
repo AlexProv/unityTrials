@@ -28,7 +28,14 @@ public class blockController : MonoBehaviour {
 			demo = null;
 		}
 		if (Input.GetKeyDown(KeyCode.Mouse1))
-		rayPlacer();    
+		{
+			delTarget();
+		}
+		else
+		{
+			rayPlacer();
+		}
+		
 	}
 	void rayPlacer()
 	{
@@ -62,9 +69,10 @@ public class blockController : MonoBehaviour {
         
         if(Physics.Raycast(r,out info,range, 1 << mask))
         {       
-			NodeFlag nf = info.collider.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
-			nf.isOpen = true;
-        	Destroy(info.collider.gameObject);
+			//NodeFlag nf = info.collider.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
+			//nf.isOpen = true;
+			toDestroy.Enqueue(info.collider.gameObject);
+        	//Destroy(info.collider.gameObject);
         }
 	}
 	
