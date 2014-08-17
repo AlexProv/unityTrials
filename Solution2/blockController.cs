@@ -27,10 +27,6 @@ public class blockController : MonoBehaviour {
 			
 		}
 		rayPlacer();    
-		
-		//float lockPos = 0;
-		//transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos);
-		//transform.LookAt(new Vector3(transform.position.x,-1,transform.position.z));
 	}
 	void rayPlacer()
 	{
@@ -120,6 +116,7 @@ public class blockController : MonoBehaviour {
 	
 	void OnExit()
 	{
+		print(demo.name);
 		NodeFlag nf = demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
 		nf.isOpen = true;
 		toDestroy.Enqueue(demo);
