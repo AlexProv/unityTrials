@@ -91,16 +91,10 @@ public class blockController : MonoBehaviour {
 	}
 	
 	void OnExit()
-	{
-		try{
-			NodeFlag nf = demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag;
-			nf.isOpen = true;
-			toDestroy.Enqueue(demo);
-		}
-		catch(UnityException e)
-		{
-			
-		}
+	{	
+		(demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
+		DestroyImmediate(demo);
+		//toDestroy.Enqueue(demo);
 	}
 	
 	
