@@ -64,7 +64,7 @@ public class blockController : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{
-	
+		print(other.gameObject.name);
 		if(demo != null)
 		{
 			toDestroy.Enqueue(demo);
