@@ -94,7 +94,8 @@ public class blockController : MonoBehaviour {
 	{	
 		//GameObject g = demo.transform.parent.gameObject;
 		(demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
-		toDestroy.Enqueue(demo);
+		DestroyImmediate(demo);
+		//toDestroy.Enqueue(demo);
 	}
 	
 	
