@@ -17,6 +17,7 @@ public class blockController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(destroying());
+		StartCoroutine(enabling());
 	}
 	
 	// Update is called once per frame
@@ -26,7 +27,6 @@ public class blockController : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
 			demo = null;
-			
 		}
 		rayPlacer();    
 	}
@@ -96,8 +96,8 @@ public class blockController : MonoBehaviour {
 	{	
 		//GameObject g = demo.transform.parent.gameObject;
 		(demo.transform.parent.gameObject.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
-		DestroyImmediate(demo);
-		//toDestroy.Enqueue(demo);
+		toEnable.Enqueue(demo.transform.parent.gameObject);
+		toDestroy.Enqueue(demo);
 	}
 	
 	
@@ -156,9 +156,9 @@ public class blockController : MonoBehaviour {
 		while(true)
 		{
 			if(toEnable.Count > 0)
-			{
-				NodeFlag nf = toEnable.Dequeue() as NodeFlag;
-				nf.isOpen = true;
+			{	
+				GameObject g = toEnable.Dequeue() as GameObject;
+				(g.GetComponent(typeof(NodeFlag)) as NodeFlag).isOpen = true;
 			}
 			else
 			{
